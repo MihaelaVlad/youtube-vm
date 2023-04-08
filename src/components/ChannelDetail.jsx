@@ -9,6 +9,8 @@ export const ChannelDetail = () => {
   const [channelDetail, setChannelDetail] = useState();
   const [videos, setVideos] = useState(null);
 
+  console.log(channelDetail);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export const ChannelDetail = () => {
   }, [id]);
 
   return (
-    <Box minHeight="95vh">
+    <Box minHeight="95vh" p={3}>
       <Box>
         <div
           style={{

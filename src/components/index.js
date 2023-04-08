@@ -9,3 +9,5 @@ export { Videos } from "./Videos";
 export { VideoCard } from "./VideoCard";
 export { ChannelCard } from "./ChannelCard";
 export { Loader } from "./Loader";
+export { VideoComments } from "./VideoComments";
+export { CommentCard } from "./CommentCard";

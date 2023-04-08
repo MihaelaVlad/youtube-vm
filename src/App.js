@@ -9,10 +9,12 @@ import {
 } from "./components";
 import { Box } from "@mui/material";
 
+const backgroundColor = "linear-gradient(to bottom, #00050e, #091c22, #06161c)";
+
 const App = () => {
   return (
     <BrowserRouter>
-      <Box sx={{ backgroundColor: "#000" }}>
+      <Box sx={{ background: backgroundColor }}>
         <NavBar></NavBar>
 
         <Routes>

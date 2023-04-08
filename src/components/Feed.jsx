@@ -2,6 +2,19 @@ import { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { SideBar, Videos } from "./";
 import { fetchFromApi } from "../utils/fetchFromApi";
+import { motion } from "framer-motion";
+import {
+  backgroundColor,
+  dropShadow,
+  boxShadowStyle,
+} from "../utils/constants";
+
+const variants = {
+  visible: (custom) => ({
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
 
 export const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
@@ -18,7 +31,6 @@ export const Feed = () => {
       <Box
         sx={{
           height: { sx: "auto", md: "92vh" },
-          borderRight: "1px solid #3d3d3d",
           px: { sx: 0, md: 2 },
         }}
       >
@@ -29,21 +41,37 @@ export const Feed = () => {
         <Typography
           className="copyright"
           variant="body2"
-          sx={{ mt: 1.5, color: "#fff" }}
+          sx={{ mt: 5, color: "#fff" }}
         >
           Copyright 2023 Mihaela Vlad
         </Typography>
       </Box>
 
-      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
-        <Typography
-          variant="h4"
-          fontWeight="bold"
-          mb={2}
-          sx={{ color: "#fff" }}
-        >
-          {selectedCategory} <span style={{ color: "#F31503" }}>videos</span>
-        </Typography>
+      <Box
+        p={2}
+        m={3}
+        sx={{
+          overflowY: "auto",
+          height: "87.5vh",
+          flex: 2,
+          background: backgroundColor,
+          boxShadow: boxShadowStyle,
+          filter: dropShadow,
+          backdropFilter: "blur(16px)",
+          border: "1px solid #3b92e982",
+          borderRadius: "8px",
+        }}
+      >
+        <motion.div custom={1} animate="visible" variants={variants}>
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            mb={2}
+            sx={{ color: "#fff" }}
+          >
+            {selectedCategory} <span style={{ color: "#16bbf7" }}>videos</span>
+          </Typography>
+        </motion.div>
         <Videos videos={videos}></Videos>
       </Box>
     </Stack>

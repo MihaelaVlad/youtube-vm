@@ -26,7 +26,11 @@ a {
 }
 
 .category-btn:hover {
-  background-color: #fc1503 !important;
+  background: linear-gradient(
+    287.97deg,
+    #16bbf7a3 40.42%,
+    #16bbf742 166.76%
+  ) !important;
   color: white !important;
 }
 
@@ -43,6 +47,12 @@ a {
   border: none;
   outline: none;
   width: 350px;
+  color: #fff;
+  background-color: transparent;
+}
+
+input::placeholder {
+  color: #fff;
 }
 
 .category-btn {

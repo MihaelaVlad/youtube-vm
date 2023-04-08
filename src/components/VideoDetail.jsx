@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
-import { Loader, Videos } from "./";
+import { Loader, VideoComments, Videos } from "./";
 import { fetchFromApi } from "../utils/fetchFromApi";
 
 export const VideoDetail = () => {
@@ -29,16 +29,22 @@ export const VideoDetail = () => {
   } = videoDetail;
 
   return (
-    <Box minHeight="95vh">
+    <Box minHeight="95vh" p={3}>
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
           <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
             <ReactPlayer
               url={`https://youtube.com/watch?v=${id}`}
+              playing={true}
               className="react-player"
               controls
             ></ReactPlayer>
-            <Typography color="#fff" fontWeight="bold" p={2}>
+            <Typography
+              color="#fff"
+              fontWeight="bold"
+              p={2}
+              sx={{ fontSize: "24px", color: "#fff" }}
+            >
               {title}
             </Typography>
             <Stack
@@ -51,7 +57,7 @@ export const VideoDetail = () => {
                 <Typography color="#fff">
                   {channelTitle}
                   <CheckCircle
-                    sx={{ fontSize: "12px", color: "gray", ml: "5px" }}
+                    sx={{ fontSize: "12px", color: "#fff", ml: "5px" }}
                   ></CheckCircle>
                 </Typography>
               </Link>
@@ -76,6 +82,10 @@ export const VideoDetail = () => {
           <Videos videos={videos} direction="column"></Videos>
         </Box>
       </Stack>
+
+      <Box>
+        <VideoComments></VideoComments>
+      </Box>
     </Box>
   );
 };

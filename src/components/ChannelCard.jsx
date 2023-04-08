@@ -7,12 +7,11 @@ import { demoProfilePicture } from "../utils/constants";
 export const ChannelCard = ({ channelDetail, marginTop }) => (
   <Box
     sx={{
-      boxShadow: "none",
       borderRadius: "20px",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      width: { xs: "356px", md: "320px" },
+      width: { xs: "356px", md: "320px", lg: "284px" },
       height: "326px",
       margin: "auto",
       marginTop,
@@ -44,17 +43,18 @@ export const ChannelCard = ({ channelDetail, marginTop }) => (
         <Typography variant="h6">
           {channelDetail?.snippet?.title}{" "}
           <CheckCircleIcon
-            sx={{ fontSize: "14px", color: "gray", ml: "5px" }}
+            sx={{ fontSize: "14px", color: "#fff", ml: "5px" }}
           ></CheckCircleIcon>
         </Typography>
         {channelDetail?.statistics?.subscriberCount && (
-          <Typography sx={{ fontSize: "15px", fontWeight: 500, color: "gray" }}>
+          <Typography sx={{ fontSize: "15px", fontWeight: 500, color: "#fff" }}>
             {parseInt(
               channelDetail?.statistics?.subscriberCount
             ).toLocaleString("en-US")}{" "}
             Subscribers
           </Typography>
         )}
+        {/* <Typography>{channelDetail?.snippet.description}</Typography> */}
       </CardContent>
     </Link>
   </Box>
