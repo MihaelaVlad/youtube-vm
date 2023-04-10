@@ -11,7 +11,8 @@ export const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { xs: "100%", sm: "358px", md: "320px" },
+        width: { xs: "90.6vw", sm: "40vw", md: "320px", lg: "346px" },
+        height: { xs: "282px", sm: "302px", md: "310px", lg: "340px" },
         borderRadius: "6px",
         border: "1px solid #3b92e982",
         backgroundColor: "#14233075",
@@ -21,7 +22,7 @@ export const VideoCard = ({
         <CardMedia
           image={snippet?.thumbnails?.high?.url}
           alt={snippet?.title}
-          sx={{ width: { xs: "100%", sm: "358px" }, height: 180 }}
+          sx={{ width: { xs: "100%", sm: "358px" }, height: 154 }}
         ></CardMedia>
       </Link>
       <CardContent sx={{ height: "75px" }}>
@@ -30,7 +31,7 @@ export const VideoCard = ({
             {snippet?.title.slice(0, 60)}
           </Typography>
         </Link>
-        <Box display="flex" justifyContent="space-between">
+        <Box display="flex" justifyContent="space-between" mt={1} mb={1}>
           <Link to={`/channel/${snippet?.channelId}`}>
             <Typography variant="subtitle2" color="#fff">
               {snippet?.channelTitle}

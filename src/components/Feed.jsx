@@ -41,7 +41,7 @@ export const Feed = () => {
         <Typography
           className="copyright"
           variant="body2"
-          sx={{ mt: 5, color: "#fff" }}
+          sx={{ mt: 4, color: "#fff" }}
         >
           Copyright 2023 Mihaela Vlad
         </Typography>
@@ -49,7 +49,7 @@ export const Feed = () => {
 
       <Box
         p={2}
-        m={3}
+        m={{ sx: "0", md: "24px" }}
         sx={{
           overflowY: "auto",
           height: "87.5vh",

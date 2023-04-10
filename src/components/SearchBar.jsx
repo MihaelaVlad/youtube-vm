@@ -28,7 +28,7 @@ export const SearchBar = () => {
         background: backgroundColor,
         borderRadius: 20,
         border: "1px solid #3b92e982",
-        pl: 2,
+        pl: { xs: "2px", sm: "10px" },
         mr: { sm: 5 },
         color: "#fff",
       }}
@@ -39,7 +39,10 @@ export const SearchBar = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
-      <IconButton type="submit" sx={{ p: "10px", color: "#fff" }}>
+      <IconButton
+        type="submit"
+        sx={{ p: { xs: "5px", sm: "10px" }, color: "#fff" }}
+      >
         <Search></Search>
       </IconButton>
     </Paper>

@@ -10,6 +10,7 @@ export const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
   const [videos, setVideos] = useState(null);
   const { id } = useParams();
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetchFromApi(`videos?part=snippet,statistics&id=${id}`).then((data) =>
@@ -21,6 +22,12 @@ export const VideoDetail = () => {
     );
   }, [id]);
 
+  useEffect(() => {
+    fetchFromApi(
+      `commentThreads?part=snippet&videoId=${id}&maxResults=100`
+    ).then((data) => setComments(data.items[0]));
+  }, [id]);
+
   if (!videoDetail?.snippet) return <Loader></Loader>;
 
   const {
@@ -29,7 +36,7 @@ export const VideoDetail = () => {
   } = videoDetail;
 
   return (
-    <Box minHeight="95vh" p={3}>
+    <Box minHeight="95vh" p={{ xs: 1, md: 3 }}>
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
           <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
@@ -84,7 +91,7 @@ export const VideoDetail = () => {
       </Stack>
 
       <Box>
-        <VideoComments></VideoComments>
+        <VideoComments comments={comments}></VideoComments>
       </Box>
     </Box>
   );

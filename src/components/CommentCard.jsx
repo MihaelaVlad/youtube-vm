@@ -1,17 +1,11 @@
 import React from "react";
-import { Box, CardContent, CardMedia, Typography } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 
-export const CommentCard = ({ videoComment }) => {
+export const CommentCard = ({ videoComment: { snippet } }) => {
   return (
     <Box>
-      <Typography variant="h6">
-        {videoComment?.snippet?.title}{" "}
-        <CheckCircleIcon
-          sx={{ fontSize: "14px", color: "#fff", ml: "5px" }}
-        ></CheckCircleIcon>
-      </Typography>
+      console.log(videoComment);
+      {snippet?.topLevelCommment?.snippet?.textDisplay}
     </Box>
   );
 };
